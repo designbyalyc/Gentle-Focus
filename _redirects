@@ -1,0 +1,12 @@
+# ================================
+# Netlify Redirect Configuration
+# For Gentle-Focus Project
+# ================================
+# Default route: when someone visits the site root, show p3/index.html
+/      /p3/index.html      200
+# Allow all pages and subpages inside p3 to load properly
+/p3/*  /p3/:splat          200
+# Allow all pages and subpages inside ui to load properly
+/ui/*  /ui/:splat          200
+# Allow all pages and subpages inside prototype to load properly
+/prototype/*  /prototype/:splat  200
