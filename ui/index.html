@@ -18,8 +18,8 @@
   </div>
 
   <!-- Audio Control -->
-  <button class="audio-control" id="audioControl">🔇 Unmute Audio</button>
-  <audio id="ambientAudio" loop preload="auto">
+  <button class="audio-control" id="audioControl" aria-pressed="false" aria-label="Toggle ambient audio">🔇 Unmute Audio</button>
+  <audio id="ambientAudio" loop preload="auto" playsinline crossorigin="anonymous" muted>
     <source src="../assets/audio/456.mp3" type="audio/mpeg" />
     <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_4c0c6d718c.mp3" type="audio/mpeg" />
   </audio>
@@ -169,7 +169,7 @@
       y += dy;
       if (x <= 0 || x >= window.innerWidth - 250) dx *= -1;
       if (y <= 0 || y >= window.innerHeight - 250) dy *= -1;
-      const hue = (Date.now() / 200) % 360;
+      const hue = (Date.now() / 1500) % 360; // ~90s cycle
       bubble.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
       bubble.style.background = `radial-gradient(circle at center,
         hsl(${hue}, 85%, 75%),
@@ -180,22 +180,67 @@
     }
     animateBubble();
 
-    // Audio Control
+    // Audio Control (iOS-friendly priming + mute/unmute toggle)
     const audio = document.getElementById("ambientAudio");
     const btn = document.getElementById("audioControl");
-    let isPlaying = false;
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (!isPlaying) {
-        audio.volume = 0.3;
-        audio.play().then(() => {
-          btn.textContent = "🔊 Mute Audio";
-          isPlaying = true;
+    audio.loop = true;
+    audio.preload = "auto";
+    audio.volume = 0.2;
+    audio.muted = true; // start muted to respect autoplay rules
+    let audioPrimed = false;
+
+    function updateButtonState() {
+      if (audio.muted) {
+        btn.textContent = "🔇 Unmute Audio";
+        btn.setAttribute('aria-pressed', 'false');
+      } else {
+        btn.textContent = "🔊 Mute Audio";
+        btn.setAttribute('aria-pressed', 'true');
+      }
+    }
+    updateButtonState();
+
+    // Prime audio on first user gesture to satisfy Safari autoplay
+    function primeAudio() {
+      if (audioPrimed) return;
+      // play while muted to prime decoding and network buffering
+      const p = audio.play();
+      if (p && p.then) {
+        p.then(() => {
+          audioPrimed = true;
+        }).catch(() => {
+          // ignore play errors; some browsers block until user gesture
+          audioPrimed = true;
         });
       } else {
-        audio.pause();
-        btn.textContent = "🔇 Unmute Audio";
-        isPlaying = false;
+        audioPrimed = true;
+      }
+      // remove listeners
+      document.removeEventListener('pointerdown', primeAudio);
+      document.removeEventListener('touchstart', primeAudio);
+      document.removeEventListener('keydown', primeAudio);
+    }
+    document.addEventListener('pointerdown', primeAudio, { once: true });
+    document.addEventListener('touchstart', primeAudio, { once: true });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') primeAudio();
+    }, { once: true });
+
+    // Toggle via mute/unmute for instant response on iOS
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      // ensure audio primed before unmuting for Safari
+      if (!audioPrimed) primeAudio();
+      // toggle muted state
+      audio.muted = !audio.muted;
+      updateButtonState();
+    });
+
+    // Optional: ensure seamless loop fallback — if loop not supported, restart on ended
+    audio.addEventListener('ended', () => {
+      if (!audio.loop) {
+        audio.currentTime = 0;
+        audio.play().catch(()=>{});
       }
     });
   </script>
