@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentle Focus — A Calm Productivity Experience</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Focus Bubble Animation -->
+    <div class="focus-bubble-container">
+        <div class="focus-bubble" id="focusBubble"></div>
+    </div>
+
+    <!-- Audio Control -->
+    <!-- Audio Control -->
+<button id="audioControl" class="audio-control" type="button" aria-label="Toggle ambient audio" aria-pressed="false">
+  🔇 Unmute Audio
+</button>
+
+<audio 
+  id="ambientAudio" 
+  loop 
+  preload="none" 
+  controlslist="nodownload noplaybackrate"
+>
+  <source src="../assets/audio/456.mp3" type="audio/mpeg">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_4c0c6d718c.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+    <div class="container">
+        <header>
+            <h1>Gentle Focus — A Calm Productivity Experience</h1>
+        </header>
+
+        <!-- Conceptual Response -->
+        <section>
+            <h2>Conceptual Response</h2>
+            <p>
+                <strong>Gentle Focus</strong> visualises calm concentration with a single Focus Bubble that moves gently
+                across the screen and changes colour as time passes.
+            </p>
+            <p>
+                <strong>Prompt:</strong> Spatial Control | <strong>Technique:</strong> Date.now()
+            </p>
+            <p>
+                It explores focus through soft motion and time-based colour feedback rather than pressure, encouraging
+                presence and clarity.
+            </p>
+        </section>
+
+        <!-- Visual Plan -->
+        <section>
+            <h2>Visual Plan / Sketches</h2>
+            <div class="placeholder-image">
+                <div class="placeholder-circle"></div>
+                <div class="placeholder-circle"></div>
+                <div class="placeholder-circle"></div>
+            </div>
+            <p class="caption">Visual plan showing Focus Bubble motion and colour transitions over time.</p>
+        </section>
+
+        <!-- Design References -->
+        <section>
+            <h2>Design References</h2>
+            <ul>
+                <li><a href="https://www.calm.com" class="reference-link" target="_blank">Calm App</a></li>
+                <li><a href="https://www.youtube.com/watch?v=9gOUvaj87Y8" class="reference-link" target="_blank">Apple
+                        Breathe Animation (YouTube demo)</a></li>
+                <li><a href="https://www.notion.so" class="reference-link" target="_blank">Notion Layouts</a></li>
+            </ul>
+        </section>
+
+        <!-- Technical Approach -->
+        <section>
+            <h2>Technical Approach</h2>
+            <ul>
+                <li>Built with HTML, CSS and JavaScript</li>
+                <li>Uses Spatial Control for the Focus Bubble's motion</li>
+                <li>Applies Date.now() to control time-based colour gradients</li>
+                <li>Integrates a soft ambient audio loop (mute/unmute optional)</li>
+                <li>Responsive layout for desktop and mobile</li>
+                <li>Deployed via GitHub Pages / Netlify</li>
+            </ul>
+        </section>
+
+        <!-- System Map -->
+        <section>
+            <h2>System Map</h2>
+            <div class="system-map">
+                <div class="system-map-content">
+                    <span class="box">User</span>
+                    <span class="arrow" aria-hidden="true">→</span> <span class="arrowdown" aria-hidden="true">↓</span>
+                    <span class="box">Focus Bubble</span>
+                    <span class="arrow" aria-hidden="true">→</span> <span class="arrowdown" aria-hidden="true">↓</span>
+                    <span class="box">Date.now()</span>
+                    <span class="arrow" aria-hidden="true">→</span> <span class="arrowdown" aria-hidden="true">↓</span>
+                    <span class="box">Colour State (+ Audio Layer)</span>
+                </div>
+            </div>
+            <p class="caption">System Map — User → Focus Bubble → Date.now() → Colour State (+ Audio Layer).</p>
+        </section>
+
+        <!-- Peer Testing Feedback -->
+        <section>
+            <h2>Peer Testing Feedback Summary</h2>
+            <p>
+                Participants described the experience as calming and aesthetically soft. The Focus Bubble's gentle
+                motion helped them slow down mentally and refocus, while the gradual colour transitions were perceived
+                as "peaceful" and "meditative."
+            </p>
+            <p>
+                Most participants noted that the lack of text or clutter made the experience feel clean and
+                distraction-free.
+            </p>
+            <p>
+                A few suggested adding a small timer or text cue to represent elapsed focus time, but overall feedback
+                was strongly positive toward its simplicity.
+            </p>
+            <p><strong>Key Insights:</strong></p>
+            <ul>
+                <li>The bubble's smooth spatial movement was effective in communicating calm.</li>
+                <li>Users responded well to colour changes tied to time, describing them as "natural" and "ambient."
+                </li>
+                <li>Audio integration was subtle and enhanced immersion.</li>
+            </ul>
+
+            <h2 style="margin-top: 40px;">Reflection</h2>
+
+            <div class="reflection-answer">
+                <p class="question">1. What was your approach to animating the Focus Bubble and colour shift?</p>
+                <p>I used smooth CSS transitions combined with JavaScript setInterval to move the bubble organically
+                    across the viewport. The colour shift utilizes HSL values driven by Date.now() modulo calculations,
+                    creating a continuous gradient cycle through pastel tones that feels natural and unforced.</p>
+            </div>
+
+            <div class="reflection-answer">
+                <p class="question">2. How did you use Date.now() to connect visuals to time or mood?</p>
+                <p>Date.now() maps to a three-phase color cycle representing time of day: morning (soft blues/purples),
+                    afternoon (warm oranges/yellows), and evening (deep purples/pinks). The 72-second cycle creates a
+                    meditative progression that gives users ambient feedback about passing time without explicit
+                    pressure, maintaining calm focus through natural color transitions.</p>
+            </div>
+
+            <div class="reflection-answer">
+                <p class="question">3. What was most interesting about creating a calm interaction instead of a busy
+                    one?</p>
+                <p>The challenge was resisting the urge to add more elements or faster animations. True calm comes from
+                    restraint—one bubble, slow movements, minimal UI. It taught me that removing features can be more
+                    powerful than adding them when the goal is to reduce cognitive load.</p>
+            </div>
+
+            <div class="reflection-answer">
+                <p class="question">4. If you had more time, what enhancement would you add?</p>
+                <p>I would add subtle breathing-pace guidance where the bubble gently expands and contracts at 4-7-8
+                    breathing intervals, and implement localStorage to track cumulative focus sessions with a minimal,
+                    non-intrusive session counter that appears only on hover.</p>
+            </div>
+        </section>
+
+        <!-- Design Rationale -->
+        <section>
+            <h2>Design Rationale</h2>
+            <p>
+                Research in cognitive psychology and HCI shows that subtle motion, ambient sound, and time-based
+                feedback can help users sustain attention and reduce overload.
+            </p>
+            <p>
+                Flow theory (Csikszentmihalyi, 1990) notes that gentle environmental cues can maintain focus without
+                anxiety.
+            </p>
+            <p>
+                Gentle Focus applies these principles through spatial motion (the Focus Bubble) and temporal colour
+                shifts (Date.now()) to encourage calm, intentional concentration.
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Focus Bubble Animation
+        const bubble = document.getElementById('focusBubble');
+        let x = window.innerWidth / 2 - 125;
+        let y = window.innerHeight / 2 - 125;
+        let dx = 0.8;
+        let dy = 0.6;
+
+        function animateBubble() {
+            // Gentle, meditative movement
+            x += dx;
+            y += dy;
+
+            // Smooth bounce off edges
+            if (x <= 0 || x >= window.innerWidth - 250) {
+                dx *= -1;
+            }
+            if (y <= 0 || y >= window.innerHeight - 250) {
+                dy *= -1;
+            }
+
+            // Time-based color: Morning → Afternoon → Evening using Date.now()
+            const time = Date.now();
+            const cycle = (time / 200) % 360; // Slow 72-second full cycle
+
+            // Map cycle to time-of-day colors:
+            // 0-120: Morning (soft blues/purples)
+            // 120-240: Afternoon (warm oranges/yellows)  
+            // 240-360: Evening (deep purples/pinks)
+            let hue, saturation, lightness;
+
+            if (cycle < 120) {
+                // Morning: soft blue-purple tones
+                hue = 200 + (cycle / 120) * 60; // 200-260 (blue to purple)
+                saturation = 60 + (cycle / 120) * 15;
+                lightness = 70;
+            } else if (cycle < 240) {
+                // Afternoon: warm orange-yellow tones
+                const afternoonProgress = (cycle - 120) / 120;
+                hue = 30 + afternoonProgress * 30; // 30-60 (orange to yellow)
+                saturation = 75;
+                lightness = 65;
+            } else {
+                // Evening: deep purple-pink tones
+                const eveningProgress = (cycle - 240) / 120;
+                hue = 280 + eveningProgress * 40; // 280-320 (purple to pink)
+                saturation = 70;
+                lightness = 60;
+            }
+
+            bubble.style.transform = `translate(${x}px, ${y}px)`;
+            bubble.style.background = `radial-gradient(circle at center, 
+                hsl(${hue}, ${saturation}%, ${lightness}%), 
+                hsl(${(hue + 20) % 360}, ${saturation - 10}%, ${lightness - 8}%))`;
+            bubble.style.boxShadow = `0 0 100px hsla(${hue}, ${saturation}%, ${lightness}%, 0.5)`;
+
+            requestAnimationFrame(animateBubble);
+        }
+
+        animateBubble();
+
+        
+        // ===========================
+//  AUDIO CONTROL (Final P3)
+// ===========================
+
+const audio = document.getElementById('ambientAudio');
+const audioBtn = document.getElementById('audioControl');
+
+let isPlaying = false;
+let userInteracted = false;
+
+// Utility log
+function setStatus(text) {
+  console.log('[audio] ' + text);
+}
+
+// --- Audio Context Setup (for Safari & WebAudio consistency)
+let audioCtx = null;
+let sourceNode = null;
+
+function ensureAudioContext() {
+  if (audioCtx) return audioCtx;
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtx) {
+    setStatus('Web Audio API not available');
+    return null;
+  }
+
+  audioCtx = new AudioCtx();
+  try {
+    sourceNode = audioCtx.createMediaElementSource(audio);
+    sourceNode.connect(audioCtx.destination);
+    setStatus('AudioContext created and connected');
+  } catch (err) {
+    console.warn('createMediaElementSource failed', err);
+  }
+  return audioCtx;
+}
+
+// --- Play/Pause Logic (single click)
+function toggleAudioPlay() {
+  // Ensure audio context
+  const ctx = ensureAudioContext();
+
+  // Safari needs context resume
+  if (ctx && ctx.state === 'suspended') {
+    ctx.resume().then(() => setStatus('AudioContext resumed')).catch(err => console.warn(err));
+  }
+
+  // Unmute after first click
+  audio.muted = false;
+  userInteracted = true;
+
+  if (!isPlaying) {
+    audio.volume = 0.3;
+    audio.play().then(() => {
+      isPlaying = true;
+      audioBtn.textContent = '🔊 Mute Audio';
+      setStatus('playing');
+    }).catch(err => {
+      setStatus('play blocked: ' + err);
+      audioBtn.textContent = '🔇 Audio Unavailable';
+    });
+  } else {
+    audio.pause();
+    audioBtn.textContent = '🔇 Unmute Audio';
+    isPlaying = false;
+    setStatus('paused');
+  }
+}
+
+// --- Button Click (no page refresh)
+audioBtn.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  toggleAudioPlay();
+});
+
+// --- Touch / Pointer Gestures (for iOS)
+function onFirstGesture(e) {
+  if (!userInteracted) {
+    toggleAudioPlay();
+    window.removeEventListener('touchstart', onFirstGesture);
+    window.removeEventListener('pointerdown', onFirstGesture);
+  }
+}
+window.addEventListener('touchstart', onFirstGesture, { passive: true });
+window.addEventListener('pointerdown', onFirstGesture, { passive: true });
+
+// --- Audio Element Events
+audio.addEventListener('error', (e) => console.error('Audio error:', e));
+audio.addEventListener('play', () => setStatus('play event fired'));
+audio.addEventListener('pause', () => setStatus('pause event fired'));
+
+// --- Show supported MIME formats (optional debug)
+const supports = [];
+['audio/mpeg', 'audio/ogg; codecs="vorbis"', 'audio/wav', 'audio/mp4; codecs="mp4a.40.2"'].forEach(type => {
+  const can = audio.canPlayType(type);
+  supports.push(`${type}: ${can || 'no'}`);
+});
+setStatus('formats: ' + supports.join(' | '));
+
+// --- Default setup
+audio.volume = 0.3;
+audio.muted = true;
+setStatus('initialized, waiting for user gesture');
+        // Responsive bubble size
+        window.addEventListener('resize', () => {
+            const maxX = window.innerWidth - 250;
+            const maxY = window.innerHeight - 250;
+            if (x > maxX) x = maxX;
+            if (y > maxY) y = maxY;
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+        });
+    </script>
+</body>
+
+</html>

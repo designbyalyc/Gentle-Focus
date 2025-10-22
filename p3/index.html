@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gentle Focus — Final Reflection</title>
+
+  <style>
+    /* -------------------- Base Theme -------------------- */
+    :root {
+      --bg1: #f4e8f7;
+      --bg2: #dbeafe;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --text: #2d3748;
+      --heading: #1a202c;
+      --accent: #6b8afd;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --gradient-shift: linear-gradient(135deg, var(--bg1), var(--bg2), #e6f3ff, #f7e4ec);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--gradient-shift);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* -------------------- Typography -------------------- */
+    h1 {
+      font-size: 2.6rem;
+      text-align: center;
+      color: var(--heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease both;
+    }
+
+    h2 {
+      position: relative;
+      font-size: 1.5rem;
+      margin-top: 2.4rem;
+      margin-bottom: 1rem;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      opacity: 0.8;
+    }
+
+    p {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin-bottom: 1.3rem;
+      color: #2f3640;
+      animation: fadeInUp 1.2s ease both;
+    }
+
+    code {
+      background: rgba(229, 231, 235, 0.9);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: "Fira Code", monospace;
+      font-size: 0.95rem;
+      color: #3b4252;
+    }
+
+    /* -------------------- Navigation Links -------------------- */
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1.4s ease both;
+    }
+
+    .nav-links a {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      color: var(--heading);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(107, 138, 253, 0.3);
+    }
+
+    /* -------------------- Reflection Card -------------------- */
+    .reflection {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: var(--shadow);
+      padding: 3rem 2.5rem;
+      max-width: 900px;
+      width: 100%;
+      animation: fadeInUp 1.8s ease both;
+    }
+
+    /* -------------------- Animations -------------------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -------------------- Responsive -------------------- */
+    @media (max-width: 640px) {
+      body {
+        padding: 2rem 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .reflection {
+        padding: 2rem 1.2rem;
+      }
+
+      .nav-links a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gentle Focus — Final UI</h1>
+    <h2 id="reflection-title" style="margin-bottom: 80px;padding-top: 0px;">By Alicia Chow</h2>
+
+  
+
+    
+
+
+  <nav class="nav-links">
+    <a href="../ui/index.html">Final UI</a>
+    <a href="../prototype/index.html">Original Prototype</a>
+    <a href="https://github.com/luvacias?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+  </nav>
+
+  <section id="reflection" class="reflection" aria-labelledby="reflection-title">
+    <h2 id="reflection-title">Guiding Values</h2>
+    <p>
+      Gentle Focus is built around calm, clarity, and intentional focus. These values guided every decision —
+      from the restrained colour palette to the single moving bubble. By focusing on simplicity rather than
+      visual noise, the design encourages presence and mental stillness.
+    </p>
+
+    <h2>Feedback, Information Design, Mapping &amp; Learnability</h2>
+    <p>
+      Feedback is intentionally ambient. The shifting colours represent the passage of time, while the bubble’s
+      smooth movement confirms responsiveness. The mute/unmute icon provides clear mapping, and the entire
+      interface is self-evident — users instantly understand how to interact without instruction.
+    </p>
+
+    <h2>Significant Changes Since the Previous Prototype</h2>
+    <p>
+      While the core concept remained the same, every detail was refined for stability and accessibility. Audio
+      now starts muted with a proper toggle, motion was rebuilt using <code>requestAnimationFrame</code>, and the
+      colour cycle runs on <code>Date.now()</code> for seamless pacing. Accessibility features and responsiveness
+      were added to make the experience inclusive and industry-standard.
+    </p>
+
+    <h2>Refinement as Significance</h2>
+    <p>
+      The changes may appear subtle, but in calm-interaction design, refinement is significant. The Final UI
+      focused on translating the prototype’s emotional intent into a fully resolved, technically stable product.
+      The work demonstrates maturity through precision — smoother motion, balanced pacing, and restraint over
+      embellishment — showing that subtle iteration can meaningfully transform experience quality.
+    </p>
+
+    <h2>Production Timeline &amp; Process</h2>
+    <p>
+      The main production effort went into stabilising audio and motion across browsers. Debugging Safari’s
+      autoplay policy required patience and problem-solving. Iterations on colour transitions and sound balancing
+      reinforced the importance of controlled scope and user-centred refinement.
+    </p>
+
+    <h2>Aspect I’m Most Proud Of</h2>
+    <p>
+      The cohesive link between time, sound, and movement. The interface feels alive yet peaceful, and every part
+      reinforces calmness through harmony.
+    </p>
+
+    <h2>Aspect I Found Most Challenging</h2>
+    <p>
+      Ensuring smooth, cross-browser audio without breaking immersion. Overcoming these technical issues
+      strengthened both my design thinking and development confidence.
+    </p>
+  </section>
+</body>
+</html>
